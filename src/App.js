@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-   <h1>my recat app start</h1>
+   <h1>GIT push testing my app</h1>
     </div>
   );
 }
