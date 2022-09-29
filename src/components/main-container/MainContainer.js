@@ -9,7 +9,7 @@ import SideMenu from '../side-menu/SideMenu';
 const MainContainer = () => {
 
     const [gyms, setGyms] = useState([]);
-    
+    const [min, setMin]=useState([]);
 
 
     useEffect(() => {
@@ -22,7 +22,11 @@ const MainContainer = () => {
             )
     }, [])
 
-
+    const handelMinit=(mins)=>{
+        // console.log(min);
+        const newMin=[...min, mins];
+        setMin(newMin);
+    }
 
 
 
@@ -43,6 +47,7 @@ const MainContainer = () => {
                                     <Card
                                         key={gym.id}
                                         gym={gym}
+                                        handelMinit={handelMinit}
                                     ></Card>
                                 )
                             }
@@ -53,7 +58,7 @@ const MainContainer = () => {
 
                     </div>
                     <div className="col-md-3">
-                        <SideMenu></SideMenu>
+                        <SideMenu min={min}></SideMenu>
                     </div>
                 </div>
             </div>

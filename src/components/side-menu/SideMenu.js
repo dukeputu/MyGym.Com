@@ -1,7 +1,9 @@
 import React from 'react';
 import'./SideMenu.css'
 const SideMenu = (props) => {
-    console.log(props.times);
+    const {time} = props.min;
+    console.log( time);
+    
     return (
         <div>
             <div className=" shadow-lg  pt-5 pb-5 rounded">
