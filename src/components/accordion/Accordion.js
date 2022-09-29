@@ -1,0 +1,55 @@
+import React from 'react';
+
+const Accordion = () => {
+    return (
+        <div className='mb-5 border rounded'>
+            <div className="accordion accordion-flush" id="accordionFlushExample">
+                <div className="accordion-item">
+                    <h2 className="accordion-header" id="flush-headingOne">
+                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <b>How does react work?</b>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div className="accordion-body">React is a library that allows you to write JavaScript components. It uses a syntax similar to XML, and the markup of the components is a mix between HTML and XML.
+                            <br /><br />
+                            It uses a technology called the “Virtual DOM” to manage updates. Virtual DOM is just another way of saying a big object with all the components rendered on the page and their properties. Whenever one of them changes, React knows what to do.
+                            <br /><br />
+                            For event handling, React registers a global event handler (on the HTML or Body element) and whenever events come through that listener, it takes on the responsibility to propagate the proper events and trigger the right handlers within components further down the chain.</div>
+                    </div>
+                </div>
+                <div className="accordion-item">
+                    <h2 className="accordion-header" id="flush-headingTwo">
+                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <b>What is the difference between State and props in ReactJs?</b>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                        <div className="accordion-body">
+                            <b> Props = the things the outside world throws at you.</b>
+                            <br /><br />
+                            Did your boss call to give you some information so you could carry on with a task? Those are called props. He/she passed you some props.
+                            <br /><br />
+                            <b>State = how you feel inside and how it reflects on the outside.</b>
+                            <br /><br />
+                            How the outside world and your internal beliefs reflect in your behaviour. What do your face and posture look like? Do you frown, slouch, smile?
+                            <br /><br />
+                            That’s state. You either get to keep that for yourself or share it with a friend called “the store”.</div>
+                    </div>
+                </div>
+                <div className="accordion-item">
+                    <h2 className="accordion-header" id="flush-headingThree">
+                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            Accordion Item #3
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> className. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Accordion;

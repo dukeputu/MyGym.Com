@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SideMenu from '../side-menu/SideMenu';
 // import Navbar from '../Navbar/Navbar'
 
-const Card = () => {
+const Card = (props) => {
+
+    const { workOutname, description, img, time } = props?.gym;
+
+    // const [times, setTimes] = useState([]);
+    // console.log(times);
+
+    const minit=(min) => {
+        // setTimes(min);
+        console.log(min);
+        // <SideMenu times={min}></SideMenu>
+    }
+    // <SideMenu time={times}></SideMenu>
+
+
+
     return (
         <div className="col-md-6 col-lg-4">
-          
-            
-                <div class="card mb-4">
-                    <img src="https://www.muscleandfitness.com/wp-content/uploads/2019/06/man-shoulder-dips-1109.jpg?w=800&quality=86&strip=all" class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <h5>Time required : <span>30</span>min</h5>
-                        <button class="btn btn-primary w-100 mt-3" >Add to list</button>
-                    </div>
+            <div className="card mb-4">
+                <img src={img} className="card-img-top" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">{workOutname}</h5>
+                    <p className="card-text">{description.length > 100 ? description.slice(0, 100) + "..." : description}</p>
+                    <h5>Time required : <span>{time}</span>min</h5>
+                    <button onClick={()=>minit(time)} className="btn btn-primary w-100 mt-3 " >Add to list</button>
                 </div>
-           
+            </div>
+
         </div>
     );
 };

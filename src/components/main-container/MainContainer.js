@@ -1,9 +1,31 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Accordion from '../accordion/Accordion';
 import Card from '../card/Card';
 import SideMenu from '../side-menu/SideMenu';
-import Navbar from '../Navbar/Navbar';
+// import Navbar from '../Navbar/Navbar';
 
-const mainContainer = () => {
+const MainContainer = () => {
+
+    const [gyms, setGyms] = useState([]);
+    
+
+
+    useEffect(() => {
+        fetch('my-data.json')
+            .then(res => res.json())
+            .then(data =>
+                setGyms(data)
+                // console.log(data)
+
+            )
+    }, [])
+
+
+
+
+
     return (
         <div >
 
@@ -15,16 +37,20 @@ const mainContainer = () => {
                         <h4 className='py-4'>Select Your today’s exercise</h4>
 
                         <div className="row">
-                            <Card></Card>
-                            <Card></Card>
-                            <Card></Card>
-                            <Card></Card>
-                            <Card></Card>
-                            <Card></Card>
-                            <Card></Card>
-                            <Card></Card>
-                            <Card></Card>
+
+                            {
+                                gyms.map(gym =>
+                                    <Card
+                                        key={gym.id}
+                                        gym={gym}
+                                    ></Card>
+                                )
+                            }
+
                         </div>
+                        <Accordion />
+
+
                     </div>
                     <div className="col-md-3">
                         <SideMenu></SideMenu>
@@ -35,4 +61,4 @@ const mainContainer = () => {
     );
 };
 
-export default mainContainer;
+export default MainContainer;

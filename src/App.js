@@ -6,10 +6,10 @@ import MainContainer from './components/main-container/MainContainer';
 
 function App() {
   return (
-    <div classNameName="App">
+    <div className="App">
    <Navbar></Navbar> 
    
-  <MainContainer></MainContainer>
+  <MainContainer />
    
     </div>
   );
