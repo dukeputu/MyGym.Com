@@ -1,9 +1,22 @@
-import React from 'react';
-import'./SideMenu.css'
+import React, { useState } from 'react';
+import Break from '../break/Break';
+import './SideMenu.css'
 const SideMenu = (props) => {
-    const {time} = props.min;
-    console.log( time);
-    
+    const timeArrya = props.min;
+    let workOutTime = 0;
+    for (const time of timeArrya) {
+        workOutTime = workOutTime + time.time;
+    }
+    const breaks = [1, 2, 3, 4, 5];
+    const [breakTime, setbreakTime] = useState([]);
+    const handelBreak = (mind, id) => {
+        // const newMint = [...breakTime, mind];
+        setbreakTime(mind)
+        document.getElementById(id).style.cssText = "background: #0d6efd; color: #fff";
+
+    }
+ 
+
     return (
         <div>
             <div className=" shadow-lg  pt-5 pb-5 rounded">
@@ -40,38 +53,45 @@ const SideMenu = (props) => {
                         <div className="row">
                             <div className="col-12">
                                 <ul className='d-flex justify-content-evenly ul'>
-                                    <li><span>1</span>m</li>
-                                    <li><span>2</span>m</li>
-                                    <li><span>3</span>m</li>
-                                    <li><span>4</span>m</li>
-                                    <li><span>5</span>m</li>
+                                    {
+                                        breaks.map(breake =>
+                                            <Break
+                                                break={breake}
+                                                key={breake}
+                                                id={breake}
+                                                handelBreak={handelBreak}
+                                            ></Break>
+                                        )
+                                    }
+
+
                                 </ul>
                             </div>
-                            
+
                         </div>
                     </div>
                     <h5>Exercise Details</h5>
-                    
+
                     <div className='text-center my-5 bg-light pt-4 shadow rounded '>
                         <div className="row">
                             <div className="col-6">
-                               <h6>Exercise time</h6>
+                                <h6>Exercise time</h6>
                             </div>
                             <div className="col-6">
-                               <p><span>20</span>min </p>
+                                <p><span>{workOutTime}</span>min </p>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div className='text-center my-5 bg-light pt-4 shadow rounded '>
                         <div className="row">
                             <div className="col-6">
-                               <h6>Break time</h6>
+                                <h6>Break time</h6>
                             </div>
                             <div className="col-6">
-                               <p><span>5</span>min </p>
+                                <p><span>{breakTime === "" ? '0' : breakTime}</span>min </p>
                             </div>
-                            
+
                         </div>
                     </div>
                     <button className='btn btn-primary w-100 mt-3'> Activity Completed</button>
@@ -79,7 +99,7 @@ const SideMenu = (props) => {
 
 
             </div>
-        </div>
+        </div >
     );
 };
 
