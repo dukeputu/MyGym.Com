@@ -27,9 +27,8 @@ const MainContainer = () => {
         // console.log(min);
         const newMin = [...min, mins];
         setMin(newMin);
-        
         document.getElementById(id).disabled = true;
-        // document.getElementById(id).classList.add('btn-success');
+        document.getElementById(id).classList.add('btn-success');
         document.getElementById(id).innerHTML='Added';
         
     }
