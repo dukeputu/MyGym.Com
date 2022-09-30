@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2'
+
 import Break from '../break/Break';
-import './SideMenu.css'
+
 const SideMenu = (props) => {
     const timeArrya = props.min;
     let workOutTime = 0;
@@ -10,12 +12,20 @@ const SideMenu = (props) => {
     const breaks = [1, 2, 3, 4, 5];
     const [breakTime, setbreakTime] = useState([]);
     const handelBreak = (mind, id) => {
-        // const newMint = [...breakTime, mind];
+      
         setbreakTime(mind)
         document.getElementById(id).style.cssText = "background: #0d6efd; color: #fff";
 
     }
- 
+ const toast=(toast)=>{
+    
+    Swal.fire(
+        'Good job!',
+       `<p>Your Work Time <b>${workOutTime}</b> Minutes</p>`,
+        'success'
+      )
+    // alert('hello')
+ }
 
     return (
         <div>
@@ -89,12 +99,12 @@ const SideMenu = (props) => {
                                 <h6>Break time</h6>
                             </div>
                             <div className="col-6">
-                                <p><span>{breakTime === "" ? '0' : breakTime}</span>min </p>
+                                <p><span>{breakTime.length === 0 ? breakTime.length : breakTime}</span>min </p>
                             </div>
 
                         </div>
                     </div>
-                    <button className='btn btn-primary w-100 mt-3'> Activity Completed</button>
+                    <button onClick={toast} className='btn btn-primary w-100 mt-3'> Activity Completed</button>
                 </div>
 
 
