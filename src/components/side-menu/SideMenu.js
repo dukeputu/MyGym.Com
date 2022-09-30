@@ -9,14 +9,29 @@ const SideMenu = (props) => {
     for (const time of timeArrya) {
         workOutTime = workOutTime + time.time;
     }
+    
+    
     const breaks = [1, 2, 3, 4, 5];
     const [breakTime, setbreakTime] = useState([]);
     const handelBreak = (mind, id) => {
-      
         setbreakTime(mind)
         document.getElementById(id).style.cssText = "background: #0d6efd; color: #fff";
 
+        const isBookmarked=localStorage.getItem('breakTime');
+        const oldBookmarked = JSON.parse(isBookmarked); 
+        if(oldBookmarked ){
+            localStorage.setItem('breakTime', JSON.stringify([mind]));
+            console.log('aci vai');
+        }
+        else{
+            localStorage.setItem('breakTime', JSON.stringify([mind]));
+            console.log('nai');
+        }
+       
+
     }
+
+
  const toast=(toast)=>{
     
     Swal.fire(

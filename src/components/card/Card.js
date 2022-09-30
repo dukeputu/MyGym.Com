@@ -11,7 +11,7 @@ const Card = (props) => {
 
 
     return (
-        <div className="col-md-6 col-lg-4">
+        <div className="col-md-6 col-lg-4" data-aos="zoon-in"  data-aos-duration="3000">
             <div className="card mb-4">
 
                 <img src={img} className="card-img-top" alt="..." />

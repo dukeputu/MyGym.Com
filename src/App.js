@@ -2,11 +2,15 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import MainContainer from './components/main-container/MainContainer';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import SideMenu from '';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <div className="App">
    <Navbar></Navbar> 
