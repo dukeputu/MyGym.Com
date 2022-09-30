@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import Break from '../break/Break';
 
 const SideMenu = (props) => {
-    const timeArrya = props.min;
+    const timeArrya = props.min; 
     let workOutTime = 0;
     for (const time of timeArrya) {
         workOutTime = workOutTime + time.time;
