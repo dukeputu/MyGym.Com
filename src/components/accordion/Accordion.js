@@ -40,11 +40,22 @@ const Accordion = () => {
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="flush-headingThree">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Accordion Item #3
+                            <b>When use useeffect in react?</b>
                         </button>
                     </h2>
                     <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> className. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                        <div className="accordion-body">
+                            useEffect is a part of the standard hooks which come out-of-the-box with the React package. Its also called effect hook.
+<br />
+                            It is used when you are dealing with side effects in a component(app).
+<br />
+                            Any operation(function) which modifies local state value from outside is a side effect. Examples are data fetching, subscriptions to a service, manual DOM manipulation. Some effects require cleaning up after use. By default, all hooks run after render. You can customize when it should run by passing parameters.
+<br />
+                            To use effect hook it correctly, you should have a good idea about what is the side effect is doing and how it modifies the local state. Also, you might think about how often it occurs.
+<br />
+                            Take a data fetching operation. You fetch some data from an API and assign it to a local variable in the component. By default, it will run after each render. This can easily bottleneck the component and mess up all the internal state. Therefore you have to design the hook to run only when a specific event has happened.
+<br />
+                            Thinking a bit beforehand, about what the component is doing and how the effect hook fits into a component is a good practice. Do not overthink it. The more simple and concise hook you make, the better it will be.</div>
                     </div>
                 </div>
             </div>

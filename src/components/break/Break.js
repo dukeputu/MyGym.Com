@@ -2,9 +2,9 @@ import React from 'react';
 
 const Break = (props) => {
     
-// console.log(props.break);
+// console.log(props.break , props.breakTime);
     return (
-        <li id={props.id} onClick={()=>{props.handelBreak(props.break, props.id)}}>{props.break}
+        <li className={`${props.breakTime === props.break ? 'active' : ''}`} id={props.id} onClick={()=>{props.handelBreak(props.break, props.id)}}>{props.break}
              m
         </li>
     );

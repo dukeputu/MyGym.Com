@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2'
 
 import Break from '../break/Break';
@@ -12,22 +12,19 @@ const SideMenu = (props) => {
     
     
     const breaks = [1, 2, 3, 4, 5];
-    const [breakTime, setbreakTime] = useState([]);
-    const handelBreak = (mind, id) => {
-        setbreakTime(mind)
-        document.getElementById(id).style.cssText = "background: #0d6efd; color: #fff";
-
-        const isBookmarked=localStorage.getItem('breakTime');
+    let [breakTime, setbreakTime] = useState(0);
+    useEffect(()=>{
+        const isBookmarked=localStorage.getItem('break');
         const oldBookmarked = JSON.parse(isBookmarked); 
         if(oldBookmarked ){
-            localStorage.setItem('breakTime', JSON.stringify([mind]));
-            console.log('aci vai');
-        }
-        else{
-            localStorage.setItem('breakTime', JSON.stringify([mind]));
-            console.log('nai');
-        }
-       
+         setbreakTime(oldBookmarked);
+         }
+    },[breakTime])
+    
+    const handelBreak = (mind, id) => {
+        setbreakTime(mind)
+        
+        localStorage.setItem('break', JSON.stringify(mind));
 
     }
 
@@ -85,6 +82,7 @@ const SideMenu = (props) => {
                                                 key={breake}
                                                 id={breake}
                                                 handelBreak={handelBreak}
+                                                breakTime={breakTime}
                                             ></Break>
                                         )
                                     }
@@ -114,7 +112,7 @@ const SideMenu = (props) => {
                                 <h6>Break time</h6>
                             </div>
                             <div className="col-6">
-                                <p><span>{breakTime.length === 0 ? breakTime.length : breakTime}</span>min </p>
+                                <p><span>{breakTime}</span>min </p>
                             </div>
 
                         </div>
